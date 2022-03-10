@@ -12,18 +12,9 @@ model = pickle.load(open('drug.pkl', 'rb'))
 
         
 @app.route('/drug', methods=['POST'])
-def recommend_drugs():
-    # res = Drug_Recommendation_Output.recommend(request.args.get(''))
+def recommend_drugs(): 
     medicine = request.form['med']
-    # medicine = request.form.values
-    # print(medicine)
- 
     res = Drug_Recommendation_Output.recommend(medicine)
-    # res = model.recommend(medicine)
-  
-    # print(res)
-    
-    # return json.dumps(res)
     return {"data": res}
     
 
